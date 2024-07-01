@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:myown1/pages/shoppage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,18 +14,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  Scaffold(
-        backgroundColor: Color.fromARGB(255, 1, 19, 54),
-        body: Column(children: [
-          LoginPage(),
-        ],),
-      ),
+      home: MyFirstPage(),
+    );
+  }
+}
+
+class MyFirstPage extends StatelessWidget {
+  const MyFirstPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 1, 9, 39),
+      body: LoginPage(context),
     );
   }
 
 
-
-  Column LoginPage(){
+ // My LoginPage design..
+  Column LoginPage(BuildContext context){
     return Column(
       children: [
         Container(
@@ -87,7 +95,7 @@ class MyApp extends StatelessWidget {
         SizedBox(height: 60,),
 
         TextButton(
-          onPressed: () {},
+          onPressed: () => Navigator.push(context,MaterialPageRoute(builder:(context) => ShopPage(),)),
           child: Container(
             height: 60,
             width: 300,
@@ -113,6 +121,5 @@ class MyApp extends StatelessWidget {
       ],
     );
   }
-
-  
 }
+
